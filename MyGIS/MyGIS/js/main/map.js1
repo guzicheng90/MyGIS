@@ -1,0 +1,22 @@
+﻿var map;
+$(function () {
+    require(["esri/map",
+        "esri/layers/ArcGISDynamicMapServiceLayer",
+        "esri/layers/ArcGISTiledMapServiceLayer",
+        "esri/geometry/Point",
+        "esri/SpatialReference",
+        "dojo/domReady!"],
+        function (Map, ArcGISDynamicMapServiceLayer, ArcGISTiledMapServiceLayer, Point, SpatialReference) {
+            map = new Map("map", { logo: false, lods: MapConfig.mapInitParams.lods });
+            var tiled = new ArcGISTiledMapServiceLayer(MapConfig.imgMapUrl);
+            map.addLayer(tiled);
+            var dynamicMapServiceLayer = new ArcGISDynamicMapServiceLayer(MapConfig.vecMapUrl);
+            map.addLayer(dynamicMapServiceLayer);
+            ////设置地图初始范围
+            var initExtent = new esri.geometry.Extent({ xmin: MapConfig.mapInitParams.extent.xmin, ymin: MapConfig.mapInitParams.extent.ymin, xmax: MapConfig.mapInitParams.extent.xmax, ymax: MapConfig.mapInitParams.extent.ymax, spatialReference: MapConfig.mapInitParams.spatialReference });
+            map.setExtent(initExtent);
+        }
+      );
+});
+
+

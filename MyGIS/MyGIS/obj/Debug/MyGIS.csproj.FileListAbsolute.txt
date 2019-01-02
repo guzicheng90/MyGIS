@@ -1,0 +1,5 @@
+D:\MyProject\StudyProject\MyGIS\MyGIS\MyGIS\bin\MyGIS.dll
+D:\MyProject\StudyProject\MyGIS\MyGIS\MyGIS\bin\MyGIS.pdb
+D:\MyProject\StudyProject\MyGIS\MyGIS\MyGIS\obj\Debug\MyGIS.csprojResolveAssemblyReference.cache
+D:\MyProject\StudyProject\MyGIS\MyGIS\MyGIS\obj\Debug\MyGIS.dll
+D:\MyProject\StudyProject\MyGIS\MyGIS\MyGIS\obj\Debug\MyGIS.pdb
