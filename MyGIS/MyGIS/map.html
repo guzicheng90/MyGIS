@@ -39,23 +39,148 @@
             text-align: center;
             border-radius: 0 0 0 10px;
         }
+        #map{
+            position: relative;
+        }
+        #mapDiv>.btnBox>button{
+            border:1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+        }
+        .btnBox{
+            position:absolute;
+            top:20px;
+            right: 50px;
+            z-index:1000;
+        }
+        #measurementDiv{
+            position: absolute;
+            background: #fff;
+            border: 1px solid #ddd;
+            margin-top:10px;
+            border-radius: 5px;
+            width: 278px;
+            height: auto;
+            padding:10px;
+            margin-left:50px;
+            right: 106px;
+            top:57px;
+            display:none;
+            z-index:1;
+        }
+        #HomeButton{
+            position: absolute;
+            z-index: 200;
+            top:220px;
+            left:24px;
+        }
+        .dingwei{
+            width: 278px;
+            background: #fff;
+            border:1px solid #ccc;
+            padding:10px;
+            border-radius: 5px;
+            margin-top:10px;
+            display: none;
+            position: absolute;
+            height: auto;
+            z-index:1;
+            right: 106px;
+            top:57px;
+        }
+        .dingwei .group{
+            margin-top:10px;
+        }
+        .dingwei .group input{
+            width: 209px;
+            height: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            padding-left:5px;
+        }
+        .sure{
+            text-align: center;
+            margin-top:20px;
+        }
+        .sure button{
+            width: 80px;
+            height: 30px;
+            border:0px;
+            outline: 0;
+            background: #87D2F1;
+            border-radius: 5px;
+            color:#fff;
+            cursor: pointer;
+        }
+        .sure button:hover{
+            background: #3879D9;
+        }
+        #search{
+            position: absolute;
+            z-index: 200;
+            top:17px;
+            left:50px;
+        }
     </style>
 </head>
 <body>
     <div id="map">
+        <div id="divTools" style="display:none;">
+            <div id="HomeButton"></div>
+            <div id="search"></div>
+            <div class="btnBox">
+                <button>漫游</button>
+                <button>放大</button>
+                <button>缩小</button>
+                <button>全图</button>
+                <button>测量</button>
+                <button>清除</button>
+                <button>定位</button>
+                <button>上一视图</button>
+                <button>下一视图</button>
+            </div>
+            <div id="measurementDiv"></div>
+            <div class="dingwei">
+                <div class="group">
+                    <label for="">经度：</label>
+                    <input type="text" id="X">
+                </div>
+                <div class="group">
+                    <label for="">纬度：</label>
+                    <input type="text" id="Y">
+                </div>
+                <div class="sure">
+                    <button>坐标查询</button>
+                </div>
+            </div>
+        </div>
         <div id="info">
             <div id="legend"></div>
         </div>
+
+        <!--应急资源图层控制-->
+        <div id="dvReContainer" class="re_layer_left">
+            <div class="re_layer_Div">
+                <div id="dvReTitle" class="re_layer_title">应急资源图层</div>
+                <div id="tree_layer" style="overflow: auto;"></div>
+            </div>
+        </div>
     </div>
-    <div style="position:absolute;left:0;top:10px;">
+    <div style="position: absolute; left: 0; top: 10px;">
         <button id="btn0" onclick="LoadMap()">加载矢量图/切片图</button>
         <button id="btn1" onclick="UniqueValueRenderer()">唯一值渲染</button>
         <button id="btn2" onclick="ClassBreaksRenderer()">分级符号化渲染</button>
         <button id="btn3" onclick="DotsensityThemeMap()">点密度图</button>
         <button id="btn4" onclick="Draw()">绘制点线面</button>
         <button id="btn5" onclick="Buffer()">绘制缓冲区</button>
-        <div id="drawBtn" style="display:none;">
-            <button class="btn btn-info"  id="point">点</button>
+        <button id="btn6" onclick="LayerControl()">图层控制</button>
+        <button id="btn7" onclick="Tools()">工具栏</button>
+        <div id="drawBtn" style="display: none;">
+            <button class="btn btn-info" id="point">点</button>
             <button class="btn btn-info" id="line">线</button>
             <button class="btn btn-info" id="polygon">面</button>
             <button class="btn btn-info" id="circle">徒手线</button>

@@ -20252,8 +20252,10 @@
     <Content Include="js\arcgisapi\arcgis_js_api\library\3.16\install_linux.html" />
     <Content Include="js\arcgisapi\arcgis_js_api\library\3.16\install_win.html" />
     <Content Include="js\jquery\jquery-1.12.3.min.js" />
+    <Content Include="js\main\citygis.js" />
     <Content Include="js\main\map.js" />
     <Content Include="js\main\mapspread.js" />
+    <Content Include="js\main\webgis.js" />
     <Content Include="map.html" />
     <Content Include="tdt.html" />
     <Content Include="Web.config" />
