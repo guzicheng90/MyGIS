@@ -35,5 +35,9 @@ MapConfig.mapInitParams = {
   ]
 }
 /*地图调用*/
-MapConfig.vecMapUrl = "http://10.231.9.139/ArcGIS/rest/services/pdyj/MapServer";//ArcGIS动态服务
-MapConfig.imgMapUrl = "http://172.20.97.108:6080/arcgis/rest/services/PDGIS/PDYJDP/MapServer";//ArcGIS切图服务
+//MapConfig.vecMapUrl = "http://10.231.9.139/ArcGIS/rest/services/pdyj/MapServer";//ArcGIS动态服务
+//MapConfig.imgMapUrl = "http://172.20.97.108:6080/arcgis/rest/services/PDGIS/PDYJDP/MapServer";
+MapConfig.vecMap = { Url: "http://10.231.9.139/ArcGIS/rest/services/pdyj/MapServer" };//ArcGIS动态服务
+MapConfig.imgMap = { Url: "http://172.20.97.108:6080/arcgis/rest/services/PDGIS/PDYJDP/MapServer", LabelUrl: "", type: 1 };//ArcGIS切图服务
+//Geometry服务
+MapConfig.GeometryService = { Url: "http://10.231.9.139/ArcGIS/rest/services/Geometry/GeometryServer" };

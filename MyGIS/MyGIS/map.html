@@ -3,6 +3,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>ArcGIS API for JS开发系列示例</title>
+    <script type="text/javascript" src="js/jquery/jquery-1.12.3.min.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="widget/theme/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://js.arcgis.com/3.9/js/dojo/dijit/themes/tundra/tundra.css" />
+    <link rel="stylesheet" href="js/arcgisapi/arcgis_js_api/library/3.16/3.16/dijit/themes/nihilo/nihilo.css" />
+    <!--<link rel="stylesheet" href="http://localhost/arcgis_js_v410_sdk/arcgis_js_api/library/4.10/esri/css/main.css" />
+    <script type="text/javascript" src="http://localhost/arcgis_js_v410_sdk/arcgis_js_api/library/4.10/init.js" ></script>-->
+    <link rel="stylesheet" href="http://10.231.9.139/arcgis_js_api_316/library/3.16/3.16/esri/css/esri.css" />
+    <script type="text/javascript" src="http://10.231.9.139/arcgis_js_api_316/library/3.16/3.16/init.js"></script>
+    <script type="text/javascript" src="js/main/map.config.js"></script>
+    <script type="text/javascript" src="js/main/map.js"></script>
     <script type="text/javascript">
         //配置arcgis拓展解析天地图服务类引用的路径
         dojoConfig = {
@@ -13,17 +25,42 @@
                 //location: "js/tdlib"
             }]
         };
+
     </script>
-    <script type="text/javascript" src="js/jquery/jquery-1.12.3.min.js"></script>
-    <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="Content/Site.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="js/arcgisapi/arcgis_js_api/library/3.16/3.16/dijit/themes/nihilo/nihilo.css"/>
-    <link rel="stylesheet" href="http://10.231.9.139/arcgis_js_api_316/library/3.16/3.16/esri/css/esri.css" />
-    <script type="text/javascript" src="http://10.231.9.139/arcgis_js_api_316/library/3.16/3.16/init.js"></script>
-    <script type="text/javascript" src="js/main/map.js"></script>
-    <script type="text/javascript" src="js/main/map.config.js"></script>
+    <style>
+        #info
+        {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font: 14px sans-serif;
+            background: #fff;
+            width: 160px;
+            text-align: center;
+            border-radius: 0 0 0 10px;
+        }
+    </style>
 </head>
 <body>
-    <div id="map"></div>
+    <div id="map">
+        <div id="info">
+            <div id="legend"></div>
+        </div>
+    </div>
+    <div style="position:absolute;left:0;top:10px;">
+        <button id="btn0" onclick="LoadMap()">加载矢量图/切片图</button>
+        <button id="btn1" onclick="UniqueValueRenderer()">唯一值渲染</button>
+        <button id="btn2" onclick="ClassBreaksRenderer()">分级符号化渲染</button>
+        <button id="btn3" onclick="DotsensityThemeMap()">点密度图</button>
+        <button id="btn4" onclick="Draw()">绘制点线面</button>
+        <button id="btn5" onclick="Buffer()">绘制缓冲区</button>
+        <div id="drawBtn" style="display:none;">
+            <button class="btn btn-info"  id="point">点</button>
+            <button class="btn btn-info" id="line">线</button>
+            <button class="btn btn-info" id="polygon">面</button>
+            <button class="btn btn-info" id="circle">徒手线</button>
+            <button class="btn btn-info" id="rectangle">徒手面</button>
+        </div>
+    </div>
 </body>
 </html>
